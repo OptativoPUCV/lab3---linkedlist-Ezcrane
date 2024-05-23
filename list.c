@@ -146,7 +146,15 @@ void * popCurrent(List * list)
         list->current = NULL;
         free(list->current);
     }
-    
+    else
+    {
+        list->current->prev->next = list->current->next;
+        list->current->next->prev = list->current->prev;
+        list->current->next = NULL;
+        list->current->prev = NULL;
+        list->current = NULL;
+        free(list->current);
+    }
 }
 
 void cleanList(List * list) {
