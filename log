@@ -220,3 +220,18 @@ list.c:155:1: error: control reaches end of non-void function [-Werror=return-ty
 cc1: all warnings being treated as errors
 Compilation failed
 5220b11
+Thu 23 May 2024 09:54:20 PM UTC: 
+ list.c | 21 +++++++++++++--------
+ 1 file changed, 13 insertions(+), 8 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:154:21: error: ‘izq’ undeclared (first use in this function)
+  154 |         der->prev = izq;
+      |                     ^~~
+list.c:154:21: note: each undeclared identifier is reported only once for each function it appears in
+list.c:160:1: error: control reaches end of non-void function [-Werror=return-type]
+  160 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+7adadda
