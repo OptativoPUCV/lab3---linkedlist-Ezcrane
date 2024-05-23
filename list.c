@@ -63,7 +63,10 @@ void * nextList(List * list)
     }
     return NULL;
 }
-void * lastList(List * list) {
+void * lastList(List * list) 
+{
+    list->current = list->tail;
+    return list->current->data;
     return NULL;
 }
 
