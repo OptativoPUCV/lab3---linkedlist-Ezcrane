@@ -138,26 +138,22 @@ void * popCurrent(List * list)
         Node * der = list->current->next;
         list->head = der;
         der->prev = NULL;
-        free(list->current);
-        list->current = NULL;
     }
     else if(list->current->next == NULL)
     {
         Node * izq = list->current->prev;
         list->tail = izq;
         izq->next = NULL;
-        free(list->current);
-        list->current = NULL;
     }
     else
     {
         Node * der = list->current->next;
         Node * izq = list->current->prev;
         der->prev = izq;
-        izq->next = der;
-        free(list->current);
-        list->current = NULL;
+        izq->next = der;    
     }
+    free(list->current);
+    list->current = NULL;
 }
 
 void cleanList(List * list) {
