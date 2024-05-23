@@ -151,8 +151,8 @@ void * popCurrent(List * list)
     else
     {
         Node * der = list->current->next;
-        der->prev = izq;
         Node * izq = list->current->next;
+        der->prev = izq;
         izq->next = der;
         free(list->current);
         list->current = NULL;
