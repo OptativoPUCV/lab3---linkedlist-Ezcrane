@@ -151,9 +151,10 @@ void * popCurrent(List * list)
     {
         der->prev = izq;
     }
+    void * data = list->current->data;
     free(list->current);
     list->current = NULL;
-    return NULL;
+    return data;
 }
 
 void cleanList(List * list) {
