@@ -133,24 +133,23 @@ void * popBack(List * list) {
 void * popCurrent(List * list) 
 {
     if(list->current == NULL) return NULL;
-    if(list->current->prev == NULL)
+    Node * izq = list->current->prev;
+    Node * der = list->current->next;
+    if(izq == NULL)
     {
-        Node * der = list->current->next;
         list->head = der;
-        der->prev = NULL;
-    }
-    else if(list->current->next == NULL)
-    {
-        Node * izq = list->current->prev;
-        list->tail = izq;
-        izq->next = NULL;
     }
     else
     {
-        Node * der = list->current->next;
-        Node * izq = list->current->prev;
+        izq->next = der;
+    }
+    if(der == NULL)
+    {
+        list->tail = izq;
+    }	
+    else
+    {
         der->prev = izq;
-        izq->next = der;    
     }
     free(list->current);
     list->current = NULL;
